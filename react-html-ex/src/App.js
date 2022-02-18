@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from "react-router-dom";
+
+// 전 페이지 공통사항 컴포턴트에서 불러옴
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+
+// 라우팅 처리 될 페이지
+import Main from "./pages/Main";
+import Info from "./pages/Info";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header />
+      <hr />
+      <Routes>
+        <Route path="/" element={<Main />} exact={true} />
+        <Route path="/info/*" element={<Info />} />
+      </Routes>
+      <hr />
+      <Footer />
     </div>
   );
 }
